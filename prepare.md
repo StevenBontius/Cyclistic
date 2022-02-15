@@ -10,7 +10,7 @@ The data has been combined into one file without altering its contents using rbi
 
 The data set contains 5,559,063 observations containing 14 columns, which are all unique given their ride ID being unique for the whole data set.
 
-Details of column names
+## Column names
 
 |Column name   |Data type     |   Description                                             | 
 |:-------------|:-------------|:----------------------------------------------------------| 
