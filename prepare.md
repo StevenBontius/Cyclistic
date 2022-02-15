@@ -57,6 +57,16 @@ empty_stations %>%
 ```
 ![empty_stations](pictures/empty_stations.png)
 
+The majority of the observations is missing either start or end station information. It is noticeable that although no station_id are present, there is geographical information present. Gathering information on the Divvy website about how the use the bikes revealed the following information:
+
+* Classic bikes can be picked up from docking station and must be returned at a docking station
+* E-bikes can be picked up from anywhere (docking station or any legal bike parking location). Riders are encouraged to return the bike to a docking station but can leave their bike at any legal bike parking location at an additional cost of $2.
+
+This means that for E-bike ride it is perfectly okay if there is no station identification and name as long as there is geographical information about the start and end positions.
+
+
+
+
 ## Data cleaning remarks
 
 * Combined seperate data files into one file using rbind()
