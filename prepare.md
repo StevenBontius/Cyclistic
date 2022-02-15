@@ -12,21 +12,19 @@ The data set contains 5,559,063 observations containing 14 columns, which are al
 
 Details of column names
 
-|Column name|Data type|Description| 
-| ------------- |-------------|-------------| 
-| ride_id      | chr |unique string of characters and numbers used as primary key|
+|Column name   |Data type     |   Description                                             | 
+|:-------------|:-------------|:----------------------------------------------------------| 
+| ride_id      | chr          |unique string of characters and numbers used as primary key|
+| rideable_type| chr          |type of ride(bikes in this case) that is used              |
 
-
-*ride_id [chr] = unique string of characters and numbers used as primary key
-*rideable_type [chr] = type of ride(bikes in this case) that is used
-*started_at [chr] = date time when the ride started
-*ended_at [chr] = date time when the ride ended
-*start_station_name [chr] = name of the station where the bike ride started
-*start_station_id [chr] = identification code of the station where the bike ride started
-*end_station_name [chr] = name of the station where the bike ride ended
-*end_station_id [chr] = identification code of the the station where the bike ride ended
-*start_lat [num] = latitude position of where the bike ride started
-*start_long [num] = longitude position of where the bike rider started
-*end_lat [num] = latitude position of where the bike ride ended
-*end_long [num] = longitude positon of where the bike ride ended
-*member_casual [chr] = indication of the ride was done by a annual member or a casual rider
+| started_at [chr] = date time when the ride started
+| ended_at [chr] = date time when the ride ended
+| start_station_name [chr] = name of the station where the bike ride started
+| start_station_id [chr] = identification code of the station where the bike ride started
+| end_station_name [chr] = name of the station where the bike ride ended
+| end_station_id [chr] = identification code of the the station where the bike ride ended
+| start_lat [num] = latitude position of where the bike ride started
+| start_long [num] = longitude position of where the bike rider started
+| end_lat [num] = latitude position of where the bike ride ended
+| end_long [num] = longitude positon of where the bike ride ended
+| member_casual [chr] = indication of the ride was done by a annual member or a casual rider
