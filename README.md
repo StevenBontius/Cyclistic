@@ -2,13 +2,15 @@
 Steven Bontius
 <br>Last updated: 15-02-2022
 
-This analysis is part of the Google Data Analystics course featured on coursera and it analyzes the Chicago bike sharing service called Divvy. 
+This analysis is the capstone project of the Google Data Analystics course featured on coursera and it analyzes the Chicago bike sharing service called Divvy. 
 
-The analysis uses the by Google recommended process of; ask, prepare, process, analyze, share and act. 
+The analysis used, is the by Google recommended process of; ask, prepare, process, analyze, share and act. 
 
-## ASk
-## Prepare
-## Process
-## Analyze
-## Share
-## Act
+-   [Ask](ask.md)
+-   [Prepare](prepare.md)
+-   [Process](process.md)
+-   [Analyze](analyze.md)
+-   [Share](share.md)
+-   [Act](act.md)
+
+
