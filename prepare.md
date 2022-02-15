@@ -28,11 +28,34 @@ Short description of the column names.
 | start_lat            | number       |latitude position of where the bike ride started                    |
 | start_long           | number       |longitude position of where the bike rider started                  |
 | end_lat              | number       |latitude position of where the bike ride ended                      |
-| end_long             | number       |longitude positon of where the bike ride ended                      |
+| end_long             | number       |longitude position of where the bike ride ended                     |
 
 ## Missing values
 
-The data summary shows that the 4771 observations with missing data. 
+The data summary shows that the 4771 observations with missing geographical data for the end station. Besides this the data set is also missing the end_station_id and end_station_name. So these bike rides started at docking station and where never located anymore. Since the unique bike id is missing it is impossible to know what happened with these bikes, maybe they got stolen or ended sleeping with the fishes in lake Michigan. Given the relative small amount of NA's (4771) they will be removed from the data set.
+
+Furthermore, there are more than a million observations that are empty("") at one or more of the following columns:
+
+* start_station_name
+* start_station_id
+* end_station_name
+* end_station_id
+
+Given the size of the data that has empty values, a deeper analysis is warranted.
+
+Filtering and plotting the data.
+
+```{r filter_empty_stations}
+empty_stations <- bike_rides_2021 %>%
+  filter(start_station_id == "" | end_station_id == "")
+
+empty_stations %>% 
+  ggplot() +
+  geom_bar(mapping = aes(x = member_casual, fill = rideable_type)) +
+  scale_y_continuous(labels = comma) +
+  labs(title = "Empty stations per member type", x = "Member type", y = "Number of rides")
+```
+![empty_stations](pictures/empty_stations.png)
 
 ## Data cleaning remarks
 
