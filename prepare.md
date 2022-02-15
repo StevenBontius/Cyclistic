@@ -30,3 +30,10 @@ Short description of the column names.
 | end_lat              | number       |latitude position of where the bike ride ended                      |
 | end_long             | number       |longitude positon of where the bike ride ended                      |
 
+## Missing values
+
+The data summary shows that the 4771 observations with missing data. 
+
+## Data cleaning remarks
+
+* Combined seperate data files into one file using rbind()
