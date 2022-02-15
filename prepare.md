@@ -12,8 +12,8 @@ The data set contains 5,559,063 observations containing 14 columns, which are al
 
 Details of column names
 
-| Column name   | Data type     | Descripion    | 
-| ------------- |:-------------:|:-------------:| 
+|Column name|Data type|Description| 
+| ------------- |-------------|-------------| 
 | ride_id      | chr |unique string of characters and numbers used as primary key|
 
 
