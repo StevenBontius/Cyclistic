@@ -93,9 +93,50 @@ ggplot(data = df, aes(x = hour_started, y = number_bike_rides)) +
 
 ![rides_week_weekend](pictures/rides_week_weekend.png)
 
+### Starting hour during the week
+
+Analysis of the starting hour during the week displayed per day
+
+```{r fig.width=12,fig.height=4}
+df <- bike_rides_2021 %>% 
+  filter(week_day_started != "Saturday" & week_day_started != "Sunday") %>% 
+  count(member_casual, week_day_started, hour_started, name = "number_bike_rides")
+
+ggplot(data = df, aes(x = hour_started, y = number_bike_rides)) +
+  geom_line(aes(color = week_day_started)) + 
+  scale_x_continuous(breaks = seq(0, 23, by = 1)) +
+  scale_y_continuous(labels = comma) +
+  labs(title = "Number of bike rides during work week") +
+  facet_wrap(~member_casual)
+```
+![rides_week_per_day](pictures/rides_week_per_day.png)
+
+### Starting hour during the weekend
+
+Analysis of the starting hour during the weekend display per day
+
+```{r fig.width=12,fig.height=4}
+df <- bike_rides_2021 %>% 
+  filter(week_day_started == "Saturday" | week_day_started == "Sunday") %>% 
+  count(member_casual, week_day_started, hour_started, name = "number_bike_rides")
+
+ggplot(data = df, aes(x = hour_started, y = number_bike_rides)) +
+  geom_line(aes(color = week_day_started)) + 
+  scale_x_continuous(breaks = seq(0, 23, by = 1)) +
+  scale_y_continuous(labels = comma) +
+  labs(title = "Number of bike rides during weekend") +
+  facet_wrap(~member_casual)
+```
+![rides_weekend_per_day](pictures/rides_weekend_per_day.png)
+
 ### Conclusions
 * Casual riders make more rides during the weekend (including Friday)
 * Member riders make less rides on Sunday and Monday than on average
+* Member riders show clear morning and evening rush hour peaks during the week
+* Casual riders only show a peak during the evening rush hour
+* Member riders ride more during the week
+* Casual riders rider more during the weekend
+* Cusual and member riders show similar riding patterns during the weekend
 
 
 ## Conclusions
