@@ -111,9 +111,11 @@ ggplot(data = df, aes(x = hour_started, y = number_bike_rides)) +
 ```
 ![rides_week_per_day](pictures/rides_week_per_day.png)
 
+No significant observations besides some preferences in days can be found. Casual riders ride a bit more on Friday during the week. Member riders show a slight preference on Tuesday and Wednesday. 
+
 ### Starting hour during the weekend
 
-Analysis of the starting hour during the weekend display per day
+Analysis of the starting hour during the weekend displayed per day
 
 ```{r fig.width=12,fig.height=4}
 df <- bike_rides_2021 %>% 
@@ -128,6 +130,8 @@ ggplot(data = df, aes(x = hour_started, y = number_bike_rides)) +
   facet_wrap(~member_casual)
 ```
 ![rides_weekend_per_day](pictures/rides_weekend_per_day.png)
+
+No significant observations besides both the casual and member riders show a slight increase in rides on Saturday.
 
 ### Conclusions
 * Casual riders make more rides during the weekend (including Friday)
