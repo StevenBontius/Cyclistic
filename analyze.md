@@ -59,7 +59,7 @@ When do the different customer types start their bike ride? On which day and hou
 
 ### Day of the bike ride
 
-Plotting the starting day in a bar graph, week days need to be in a vector to make sure that the bar graoh shows the week days in the correct order.
+Plotting the starting day in a bar graph. Week days need to be in a vector to make sure that the bar graoh shows the week days in the correct order.
 
 ```{r number_rides_week_day}
 week_days <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
@@ -73,8 +73,15 @@ bike_rides_2021 %>%
 ```
 ![rides_week_day](pictures/rides_week_days.png)
 
-### Conclusions
+### Startin hour of the bike ride
 
+Since there is a clear distinction between the week and the weekend the starting hours are seperately plotted by week and weekend.
+
+  
+
+### Conclusions
+* Casual riders make more rides during the weekend (including Friday)
+* Member riders make less rides on Sunday and Monday than on average
 
 
 ## Conclusions

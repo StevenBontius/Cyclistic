@@ -61,6 +61,16 @@ bike_rides_2021 <- bike_rides_2021 %>%
   mutate(hour_started = as.numeric(hour(started_at)))
 ```
 
+### Calculating whether or not it is weekend
+
+```{r bool_weekend}
+bike_rides_2021 <- bike_rides_2021 %>% 
+  mutate(weekend = case_when(week_day_started == "Saturday" ~ TRUE, 
+                             week_day_started == "Sunday" ~ TRUE,
+                             TRUE ~ FALSE))
+
+```
+
 ## Other
 
 ### Calculating the distance between start and end stations
@@ -86,11 +96,14 @@ write.csv(bike_rides_2021,"bike_rides_2021_cleaned.csv", row.names = TRUE)
 * Converted started_at en ended_at to date time with as_datetime()
 * Calculated the ride duration ride_duration_min with difftime() 
 * Converted ride_duration_min to numeric data type
-* Calculated the distance between start and end station with distHaversine()
+
+
 
 ## Data calculations
 * Calculated the day of the week and stored in column week_day_started
 * Calculated the hour when the ride started and stored in hour_started
+* Calculated whether it is weekend and stored boolean in column weekend
+* Calculated the distance between start and end station with distHaversine() and stored in column distance_between_stations_km
 
 ## Data cleaning remarks
 * Removed the bike rides with a with negative and zero time duration (removed 523 obs)
