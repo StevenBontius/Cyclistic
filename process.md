@@ -32,7 +32,7 @@ bike_rides_2021 <- anti_join(bike_rides_2021, zero_duration)
 
 ## Date and time
 
-#### Al rides started in 2021?
+### Al rides started in 2021?
 The first check is to see if all bike trips have started in 2021, and this is the case.
 ```{r in_2021}
 unique(year(bike_rides_2021$started_at))
