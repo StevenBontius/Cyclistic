@@ -73,11 +73,25 @@ bike_rides_2021 %>%
 ```
 ![rides_week_day](pictures/rides_week_days.png)
 
-### Startin hour of the bike ride
+### Starting hour of the bike ride
 
-Since there is a clear distinction between the week and the weekend the starting hours are seperately plotted by week and weekend.
+Since there is a clear distinction between the week and the weekend the starting hours are separately plotted by week and weekend.
 
-  
+```{r fig.width=12,fig.height=4}
+
+df <- bike_rides_2021 %>% 
+  count(member_casual, hour_started, weekend, name = "number_bike_rides")
+
+ggplot(data = df, aes(x = hour_started, y = number_bike_rides)) +
+  geom_line(aes(color = member_casual)) +
+  scale_x_continuous(breaks = seq(0, 23, by = 1)) +
+  scale_y_continuous(labels = comma) +
+  facet_wrap(~weekend) +
+  labs(title = "Number of bike rides", color = "Member type")
+
+```
+
+![rides_week_weekend](pictures/rides_week_weekend.png)
 
 ### Conclusions
 * Casual riders make more rides during the weekend (including Friday)

@@ -65,9 +65,9 @@ bike_rides_2021 <- bike_rides_2021 %>%
 
 ```{r bool_weekend}
 bike_rides_2021 <- bike_rides_2021 %>% 
-  mutate(weekend = case_when(week_day_started == "Saturday" ~ TRUE, 
-                             week_day_started == "Sunday" ~ TRUE,
-                             TRUE ~ FALSE))
+  mutate(weekend = case_when(week_day_started == "Saturday" ~ "Weekend", 
+                             week_day_started == "Sunday" ~ "Weekend",
+                             TRUE ~ "Week"))
 
 ```
 
