@@ -48,3 +48,13 @@ ggplot(df, aes(x = "", y = percentage, fill = member_casual)) +
   guides(fill = guide_legend(title = "Member type"))
 ```
 ![pie_minutes](pictures/minutes_customer_type.png)
+
+#### Conclusion
+* Members make more rides than casual riders
+* Cusual riders spend more minutes on the bike then members
+
+
+
+## Conclusions
+* Members make more rides than casual riders
+* Cusual riders spend more minutes on the bike then members
