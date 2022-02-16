@@ -49,7 +49,7 @@ ggplot(df, aes(x = "", y = percentage, fill = member_casual)) +
 ```
 ![pie_minutes](pictures/minutes_customer_type.png)
 
-#### Conclusion
+#### Conclusions
 * Members make more rides than casual riders
 * Casual riders spend more minutes on the bike then members
 
@@ -71,9 +71,9 @@ bike_rides_2021 %>%
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(title = "Number of bike rides", x = "Weekday", y = "Number of rides")
 ```
-![rides_week_day](pictures/rides_week_day.png)
+![rides_week_day](pictures/rides_week_days.png)
 
-
+### Conclusions
 
 
 
