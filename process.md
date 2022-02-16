@@ -36,7 +36,7 @@ The first check is to see if all bike trips have started in 2021, and this is th
 ```{r in_2021}
 unique(year(bike_rides_2021$started_at))
 ```
-[2021](pictures/2021.jpg)
+![2021](pictures/2021.jpg)
 
 
 
