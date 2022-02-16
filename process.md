@@ -43,6 +43,7 @@ unique(year(bike_rides_2021$started_at))
 ### Calculating the day of the week
 
 Since my PC has Dutch date time settings, using the weekdays() function results in names of the day printed in Dutch. In order to change this to English without changing my language settings a vector needs to be created which can be used with the wday() function which returns a number for the day of the week.
+
 ```{r calculating_day_week}
 
 week_days = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", 
@@ -51,11 +52,23 @@ week_days = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
 bike_rides_2021 <- bike_rides_2021 %>% 
   mutate(week_day_started = week_days[wday(started_at)])
 ```
+### Calculating the hour when the ride started
+
+Calculating the hour when the ride started
+
+```{r calculating_hour}
+bike_rides_2021 <- bike_rides_2021 %>% 
+  mutate(hour_started = as.numeric(hour(started_at)))
+```
 
 ## Data transformations
 * Converted started_at en ended_at to date time with as_datetime()
 * Calculated the ride duration ride_duration_min with difftime() 
 * Converted ride_duration_min to numeric data type
+
+## Data calculations
+* Calculated the day of the week and stored in column week_day_started
+* Calculated the hour when the ride started and stored in hour_started
 
 ## Data cleaning remarks
 * Removed the bike rides with a with negative and zero time duration (removed 523 obs)
