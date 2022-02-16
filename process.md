@@ -61,10 +61,30 @@ bike_rides_2021 <- bike_rides_2021 %>%
   mutate(hour_started = as.numeric(hour(started_at)))
 ```
 
+### Calculating the distance between start and end stations
+
+In order to calculate the distance between the two stations the distHaversine() function of the geosphere package is used. Rowwise() needs to be applied since distHaverine() cannot handle all data at one and must be fed row wise.
+
+```{r distance_between_stations}
+bike_rides_2021 <- bike_rides_2021 %>% 
+  rowwise() %>% 
+  mutate(distance_between_stations_km = distHaversine(c(start_lng, start_lat), c(end_lng, end_lat)) / 1000)
+
+```
+
+### Writing the data to a csv file
+
+I found out that it is good practice to save your clean data to a csv file so you can load the cleaned data in one step in stead of loading the raw data and performing all the cleaning and transformations. :)
+
+```{r writ_to_csv}
+write.csv(bike_rides_2021,"bike_rides_2021_cleaned.csv", row.names = TRUE)
+```
+
 ## Data transformations
 * Converted started_at en ended_at to date time with as_datetime()
 * Calculated the ride duration ride_duration_min with difftime() 
 * Converted ride_duration_min to numeric data type
+* Calculated the distance between start and end station with distHaversine()
 
 ## Data calculations
 * Calculated the day of the week and stored in column week_day_started
