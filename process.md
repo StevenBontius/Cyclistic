@@ -23,10 +23,21 @@ zero_duration <- bike_rides_2021 %>%
   filter(ride_duration_min == 0)
 ```
 
-These trips have been identified to have a incorrect duration and In total 523 have an incorrect trip duration and since this is a small amount they will be removed from the data set.
+These trips have been identified to have a incorrect duration and in total 523 have an incorrect trip duration and since this is a small amount they will be removed from the data set.
 
 ```{r removing_negative_zero_duration}
 bike_rides_2021 <- anti_join(bike_rides_2021, negative_duration)
 bike_rides_2021 <- anti_join(bike_rides_2021, zero_duration)
 ```
 
+## Date and time
+
+
+
+## Data transformations
+* Converted started_at en ended_at to date time with as_datetime()
+* Calculated the ride duration ride_duration_min with difftime() 
+* Converted ride_duration_min to numeric data type
+
+## Data cleaning remarks
+* Removed the bike rides with a with negative and zero time duration (removed 523 obs)
