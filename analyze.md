@@ -133,6 +133,23 @@ ggplot(data = df, aes(x = hour_started, y = number_bike_rides)) +
 
 No significant observations besides both the casual and member riders show a slight increase in rides on Saturday.
 
+### Starting month 
+
+```{r}
+df <- bike_rides_2021 %>% 
+  mutate(month_started = month(started_at)) %>% 
+  count(member_casual, month_started, name = "number_bike_rides")
+
+ggplot(data = df, aes(x = month_started, y = number_bike_rides)) +
+  geom_line(aes(color = member_casual)) +
+  scale_x_continuous(breaks = seq(0, 23, by = 1)) +
+  scale_y_continuous(labels = comma) +
+  labs(title = "Number of bike rides per month")
+```
+![rides_per_month](pictures/rides_per_month.png)
+
+Member riders show that they ride longer throughout autumn. Where we see a sharp decrease in the casual riders when the weather turns for the worse. During the winter season there are a lot less bike rides especially for the casual riders. Membership riders also start earlier with riding in the beginning of the year. Casual riders show more rides during the summer period. Winters are often cold -10 C with snow. 
+
 ### Conclusions
 * Casual riders make more rides during the weekend (including Friday)
 * Member riders make less rides on Sunday and Monday than on average
@@ -140,7 +157,8 @@ No significant observations besides both the casual and member riders show a sli
 * Casual riders only show a peak during the evening rush hour
 * Member riders ride more during the week
 * Casual riders rider more during the weekend
-* Cusual and member riders show similar riding patterns during the weekend
+* Casual and member riders show similar riding patterns during the weekend
+* Member riders rider more in the colder months whereas the casual rider likes the warmer months
 
 
 ## Conclusions
