@@ -61,6 +61,8 @@ bike_rides_2021 <- bike_rides_2021 %>%
   mutate(hour_started = as.numeric(hour(started_at)))
 ```
 
+## Other
+
 ### Calculating the distance between start and end stations
 
 In order to calculate the distance between the two stations the distHaversine() function of the geosphere package is used. Rowwise() needs to be applied since distHaverine() cannot handle all data at one and must be fed row wise.
