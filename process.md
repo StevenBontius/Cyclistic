@@ -42,8 +42,7 @@ unique(year(bike_rides_2021$started_at))
 
 ### Calculating the day of the week
 
-Since my PC has Dutch date time settings, using weekdays results in names of the day printed in Dutch. In order to change this to English without changing my language settings a vector needs to be created which can be used with the wday() function which returns a number for the day of the week.
-
+Since my PC has Dutch date time settings, using the weekdays() function results in names of the day printed in Dutch. In order to change this to English without changing my language settings a vector needs to be created which can be used with the wday() function which returns a number for the day of the week.
 ```{r calculating_day_week}
 
 week_days = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", 
