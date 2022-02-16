@@ -6,9 +6,9 @@ How do annual members and casual riders use Cyclistics bikes differently?
 
 ## Basic information
 
-Fist some basic analysis will be done, starting with the split in number of rides per member and casual rider as well as the number of minutes.
+Fist some basic analysis will be done, starting with the split in number of rides per member and casual rider as well as the number of minutes on the bike.
 
-Number of rides
+### Number of rides
 ```{r pie_number_of_rides}
 df <- bike_rides_2021 %>% 
   group_by(member_casual) %>% 
@@ -28,7 +28,7 @@ ggplot(df, aes(x = "", y = percentage, fill = member_casual)) +
 ```
 ![pie_number_rides](pictures/rides_customer_type.png)
 
-Number of minutes on bike
+### Number of minutes on bike
 
 ```{r}
 df <- bike_rides_2021 %>% 
@@ -47,4 +47,4 @@ ggplot(df, aes(x = "", y = percentage, fill = member_casual)) +
   labs(title = "Minutes [116.5 million] per customer type") +
   guides(fill = guide_legend(title = "Member type"))
 ```
-
+![pie_minutes](pictures/minutes_customer_type.png)
