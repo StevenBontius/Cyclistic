@@ -32,6 +32,12 @@ bike_rides_2021 <- anti_join(bike_rides_2021, zero_duration)
 
 ## Date and time
 
+The first check is to see if all bike trips have started in 2021, and this is the case.
+```{r in_2021}
+unique(year(bike_rides_2021$started_at))
+```
+[2021](pictures/2021.jpg)
+
 
 
 ## Data transformations
