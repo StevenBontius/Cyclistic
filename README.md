@@ -4,7 +4,7 @@ Steven Bontius
 
 This analysis is the capstone project of the Google Data Analystics course featured on coursera and it analyzes the Chicago bike sharing service called Divvy. 
 
-The analysis used, is the by Google recommended process of; ask, prepare, process, analyze, share and act. 
+The analysis method used and performed in R, is the by Google recommended process of; ask, prepare, process, analyze, share and act. 
 
 -   [Ask](ask.md)
 -   [Prepare](prepare.md)
