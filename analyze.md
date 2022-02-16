@@ -51,7 +51,13 @@ ggplot(df, aes(x = "", y = percentage, fill = member_casual)) +
 
 #### Conclusion
 * Members make more rides than casual riders
-* Cusual riders spend more minutes on the bike then members
+* Casual riders spend more minutes on the bike then members
+
+### Starting the bike ride
+
+When do the different customer types start their bike ride? On which day and hour? This section will dive into the when the ride was started.
+
+
 
 
 
