@@ -53,9 +53,25 @@ ggplot(df, aes(x = "", y = percentage, fill = member_casual)) +
 * Members make more rides than casual riders
 * Casual riders spend more minutes on the bike then members
 
-### Starting the bike ride
+## Starting the bike ride
 
 When do the different customer types start their bike ride? On which day and hour? This section will dive into the when the ride was started.
+
+### Day of the bike ride
+
+Plotting the starting day in a bar graph, week days need to be in a vector to make sure that the bar graoh shows the week days in the correct order.
+
+```{r number_rides_week_day}
+week_days <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+
+bike_rides_2021 %>%
+  ggplot() +
+  geom_bar(mapping = aes(x = factor(week_day_started, level = week_days))) +
+  facet_wrap(~member_casual) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Number of bike rides", x = "Weekday", y = "Number of rides")
+```
+![rides_week_day](pictures/rides_week_day.png)
 
 
 
