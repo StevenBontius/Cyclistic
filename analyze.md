@@ -385,9 +385,24 @@ It is visible that the casual riders have more round trips but the overall major
 
 ### Distance between stations
 
-There is one trip of an electric bike that really stands out. It traveled a whopping 115 km, most probable by car. I could not find any trips in the region that suggest rides in the neighbourhood and since no bike identification is present it is impossible to see what happended to the bike.
+There is one trip of an electric bike by a casual rider that really stands out. It traveled a whopping 115 km, most probable by car. I could not find any trips in the region that suggest rides in the neighbourhood and since no bike identification is present it is impossible to see what happened to the bike.
 
 ![long ride](pictures/long_ride.jpg)
+
+Plotting the density of the distance between stations
+
+```{r fig.width=12,fig.height=4}
+df <- bike_rides_2021 %>%
+  filter(distance_between_stations_km < 10)
+
+ggplot(data = df, aes(x = distance_between_stations_km, fill = member_casual)) +
+  geom_density(alpha=0.4) +
+  facet_wrap(~member_casual) + 
+    labs(title = "Density plot distance between stations")
+```
+![density_distance](pictures/distance.png)
+
+It is noticeable that in both graphs there is a high number of low distance trips(round trips or near round trips due to docking availability)
 
 ### Conclusions
 * Casual riders focus on stations the offer tourist/leisure activities
@@ -401,3 +416,4 @@ There is one trip of an electric bike that really stands out. It traveled a whop
 ## More data needed
 * Divide the casual members in to regular and day pass
 * It is unknown what a docked_bike is
+* There is not bike identification present in the data set 
