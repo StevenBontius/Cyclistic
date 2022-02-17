@@ -250,8 +250,8 @@ ggplot(data = df, aes(x = ride_duration_min)) +
 ![mean_median_member](pictures/mean_median_member.png)
 
 ### Conclusions
-* 92% of the rides longer than 100 minutes are performed by casual riders.
-* On "average" casual members spend 15 minutes on a bike compared to 10 minutes for a member.
+* 92% of the rides longer than 100 minutes are performed by casual riders
+* On "average" casual members spend 15 minutes on a bike compared to 10 minutes for a member
 
 ## Type of ride
 
@@ -284,8 +284,8 @@ We can see that both rider types use an electric bike for roughly the same perce
 A quick analysis shows no clear indications of what a docked bike might be. The internet doed not provide any information, so the Chicago data portal was contacted to provide more information.
 
 ### Conclusions
-* Members do not use docked_bikes, whereas 12% of the rides of casual riders used docked bikes.
-* Members and casual rides use an electric bike for roughly the same percentage of their rides.
+* Members do not use docked_bikes, whereas 12% of the rides of casual riders used docked bikes
+* Members and casual rides use an electric bike for roughly the same percentage of their rides
 
 ## Geographic investigation
 
@@ -441,7 +441,7 @@ median_member_distance_min <- bike_rides_2021 %>%
 Member mean = 2.13 km
 <br>Member median = 1.56 km
 
-Looking at the average figures we can safely state that member riders have shorter rides on average than member riders.
+Looking at the average figures we can safely state that member riders have shorter rides than member riders.
 ### Conclusions
 * Casual riders focus on stations the offer tourist/leisure activities
 * Member riders focus on station in residential and office locations
@@ -449,8 +449,27 @@ Looking at the average figures we can safely state that member riders have short
 * Member riders have shorter trips than casual riders
 
 ## Conclusions
+
+At the end of the analysis the following conclusions can be drawn.
+
 * Members make more rides than casual riders
 * Casual riders spend more minutes on the bike then members
+* Casual riders make more rides during the weekend (including Friday)
+* Member riders make less rides on Sunday and Monday than on average
+* Member riders show clear morning and evening rush hour peaks during the week
+* Casual riders only show a peak during the evening rush hour
+* Member riders ride more during the week
+* Casual riders rider more during the weekend
+* Casual and member riders show similar riding patterns during the weekend
+* Member riders ride more in the colder months whereas the casual rider likes the warmer months
+* 92% of the rides longer than 100 minutes are performed by casual riders
+* On "average" casual members spend 15 minutes on a bike compared to 10 minutes for a member
+* Members do not use docked_bikes, whereas 12% of the rides of casual riders used docked bikes
+* Members and casual rides use an electric bike for roughly the same percentage of their rides
+* Casual riders focus on stations the offer tourist/leisure activities
+* Member riders focus on station in residential and office locations
+* Casual riders have more round trips than members
+* Member riders have shorter trips than casual riders
 
 ## More data needed
 * Divide the casual members in to regular and day pass
