@@ -219,7 +219,7 @@ ggplot(data = df, aes(x = ride_duration_min)) +
   annotate("text", x=12, y=0.025, label= paste0("Median\n",median_casual_min)) +
   labs(title = "Density plot ride duration casual")
 ```
-![mean_median_casual](pictures/mean_medium_casual.png)
+![mean_median_casual](pictures/mean_median_casual.png)
 
 
 ```{r casual riders fig.width=12,fig.height=4}
@@ -245,7 +245,7 @@ ggplot(data = df, aes(x = ride_duration_min)) +
   annotate("text", x=6, y=0.04, label= paste0("Median\n",median_member_min)) +
   labs(title = "Density plot ride duration members")
 ```
-![mean_median_member](pictures/mean_medium_member.png)
+![mean_median_member](pictures/mean_median_member.png)
 
 ### Conclusions
 * 92% of the rides longer than 100 minutes are performed by casual riders.
