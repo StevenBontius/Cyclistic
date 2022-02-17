@@ -166,12 +166,21 @@ ggplot(data = df, aes(x = ride_duration_min, fill = member_casual)) +
   geom_density(alpha=0.4) +
   facet_wrap(~member_casual)
 ```
-![correct_density.png](pictures/correct_density.png)
+![correct_density.png](pictures/density_correct.png)
+
+Looking at the longer bike rides shows the following
+
+```{r}
+long_bike_rides <- bike_rides_2021 %>% 
+  filter(ride_duration_min >= 100) %>% 
+  group_by(member_casual) %>% 
+  tally(name = "number_of_rides") %>% 
+  mutate(percentage = percent(number_of_rides / sum(number_of_rides)), 
+         percentage_total_rides = percent(number_of_rides / nrow(bike_rides_2021)))
+```
+![longer_rides](pictures/longer_rides.jpg)
 
 
-
-
-The data needed to be filtered since there are some rides wit a very long duration that make the scaling of the densinty plot in such a way that it becomes unreadable. Filtered out at 200 minutes. Need to create a box plot to clearly show how the data is distributed.
 
 ### Conclusions
 * Casual riders make more rides during the weekend (including Friday)
