@@ -385,7 +385,47 @@ It is visible that the casual riders have more round trips but the overall major
 
 ### Distance between stations
 
-There is one trip of an electric bike by a casual rider that really stands out. It traveled a whopping 115 km, most probable by car. I could not find any trips in the region that suggest rides in the neighbourhood and since no bike identification is present it is impossible to see what happened to the bike.
+There is one trip of an electric bike by a casual rider that really stands out. It traveled a whopping 115 km, most probable by car. I could not find any trips in the region that suggest rides in the neighbourhood and since no bike identification is present it is impossible to see what happened to the bike. This effect is more present with the casual members caused by the higher amount of round trips.
+
+Furthermore, in this plot is visible that member riders are travelling shorter distances than casual riders. This coincides with their average time on the bike.
+
+The median and mean values for the distance are as follows:
+
+```{r mean_median_casual_distance}
+mean_casual_distance_min <- bike_rides_2021 %>%
+  filter(member_casual == "casual") %>% 
+  pull(distance_between_stations_km) %>% 
+  mean() %>% 
+  round(2)
+
+median_casual_distance_min <- bike_rides_2021 %>%
+  filter(member_casual == "casual") %>% 
+  pull(distance_between_stations_km) %>% 
+  median() %>%
+  round(2)
+```
+Casual mean = 2.26 km
+Casual median = 1.73 km
+
+```{r mean_median_member_distance}
+mean_member_distance_min <- bike_rides_2021 %>%
+  filter(member_casual == "member") %>% 
+  pull(distance_between_stations_km) %>% 
+  mean() %>% 
+  round(2)
+
+median_member_distance_min <- bike_rides_2021 %>%
+  filter(member_casual == "member") %>% 
+  pull(distance_between_stations_km) %>% 
+  median() %>%
+  round(2)
+```
+
+Member mean = 2.13 km
+Member median = 1.56 km
+
+Looking at the average figures we can safely state that member riders have shorter rides on average than member riders.
+
 
 ![long ride](pictures/long_ride.jpg)
 
@@ -407,7 +447,8 @@ It is noticeable that in both graphs there is a high number of low distance trip
 ### Conclusions
 * Casual riders focus on stations the offer tourist/leisure activities
 * Member riders focus on station in residential and office locations
-* Casual riders have more round trips than mebers
+* Casual riders have more round trips than members
+* Member riders have shorter trips than casual riders
 
 ## Conclusions
 * Members make more rides than casual riders
