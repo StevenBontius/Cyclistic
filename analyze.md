@@ -285,6 +285,75 @@ A quick analysis shows no clear indications of what a docked bike might be. The 
 
 ### Conclusions
 * Members do not use docked_bikes, whereas 12% of the rides of casual riders used docked bikes.
+* Members and casual rides use an electric bike for roughly the same percentage of their rides.
+
+## Geographic investigation
+
+### what are the most popular stations are where are they located
+
+Finding the most popular start stations
+
+```{r pop_start_stations}
+start_station_gps <- bike_rides_2021 %>% 
+  filter(start_station_name != "") %>% 
+  group_by(station_id = start_station_id, station_name = start_station_name) %>% 
+  summarise(lng = mean(start_lng), lat = mean(start_lat))
+
+most_pop_start_station_casual <- bike_rides_2021 %>% 
+  filter(start_station_name != "", member_casual == "casual") %>% 
+  group_by(station_name = start_station_name, member_casual) %>% 
+  tally(name = "number_of_starts") %>%
+  left_join(start_station_gps, by = "station_name") %>% 
+  arrange(-number_of_starts)
+
+most_pop_start_station_casual <- most_pop_start_station_casual[1:10,]
+
+most_pop_start_station_member <- bike_rides_2021 %>% 
+  filter(start_station_name != "", member_casual == "member") %>% 
+  group_by(station_name = start_station_name, member_casual) %>% 
+  tally(name = "number_of_starts") %>%
+  left_join(start_station_gps, by = "station_name") %>% 
+  arrange(-number_of_starts)
+
+most_pop_start_station_member <- most_pop_start_station_member[1:10,]
+
+most_pop_start_station <- rbind(most_pop_start_station_casual, most_pop_start_station_member)
+
+```
+Finding the most popular end stations
+
+```{r pop_end_stations}
+end_station_gps <- bike_rides_2021  %>% 
+  filter(end_station_name != "") %>% 
+  group_by(station_name = end_station_name) %>% 
+  summarise(lng = mean(end_lng), lat = mean(end_lat))
+
+most_pop_end_station_casual <- bike_rides_2021 %>% 
+  filter(end_station_name != "", member_casual == "casual") %>% 
+  group_by(station_name = end_station_name, member_casual) %>% 
+  tally(name = "number_of_starts") %>%
+  left_join(end_station_gps, by = "station_name") %>% 
+  arrange(-number_of_starts)
+
+most_pop_end_station_casual <- most_pop_end_station_casual[1:10,]
+
+most_pop_end_station_member <- bike_rides_2021 %>% 
+  filter(end_station_name != "", member_casual == "member") %>% 
+  group_by(station_name = end_station_name, member_casual) %>% 
+  tally(name = "number_of_starts") %>%
+  left_join(end_station_gps, by = "station_name") %>% 
+  arrange(-number_of_starts)
+
+most_pop_end_station_member <- most_pop_end_station_member[1:10,]
+
+most_pop_end_station <- rbind(most_pop_end_station_casual, most_pop_end_station_member)
+```
+
+Plotting the most popular start and end stations
+
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](pictures/top_10_start.png)  |  ![](pictures/top_10_end.png)
 
 
 ## Conclusions
