@@ -277,6 +277,11 @@ ggplot(df, aes(x = "", y = percentage, fill = rideable_type)) +
 ```
 ![rideable_per_type](pictures/rideable_per_type.png)
 
+We can see that both rider types use an electric bike for roughly the same percentage of their rides. Casual riders are the only ones that use docked_bikes. This amounts to 12% of their total bike rides. Member riders do not use docked_bikes.
+
+## What is a docked bike?
+
+A quick analysis shows no clear indications of what a docked bike might be. The internet doed not provide any information, so the Chicago data portal was contacted to provide more information.
 
 ### Conclusions
 * Members do not use docked_bikes, whereas 12% of the rides of casual riders used docked bikes.
