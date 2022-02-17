@@ -180,7 +180,7 @@ long_bike_rides <- bike_rides_2021 %>%
 ```
 ![longer_rides](pictures/longer_rides.jpg)
 
-
+Roughly 1.5% of all bike rides are longer than 100 minutes, where 92% of those longer rides are performed by casual rides. Although members are incentivized to stop their ride after 45 minutes ($0,15 cent per minute after 45 min), about 1% of their rides are longer than 45 minutes. Casual riders need to pay the 15 cents after 30 minutes, which is about 11% of their rides. But since there are also day passes available, and this information is not available in the data set, we cannot draw any conclusions from this.
 
 ### Conclusions
 * Casual riders make more rides during the weekend (including Friday)
@@ -191,8 +191,13 @@ long_bike_rides <- bike_rides_2021 %>%
 * Casual riders rider more during the weekend
 * Casual and member riders show similar riding patterns during the weekend
 * Member riders rider more in the colder months whereas the casual rider likes the warmer months
+* 92% of the rides longer than 100 minutes are performed by casual riders.
+
 
 
 ## Conclusions
 * Members make more rides than casual riders
-* Cusual riders spend more minutes on the bike then members
+* Casual riders spend more minutes on the bike then members
+
+## More data needed
+* Divide the casual members in to regular and day pass.
