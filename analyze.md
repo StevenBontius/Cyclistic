@@ -400,7 +400,7 @@ ggplot(data = df, aes(x = distance_between_stations_km, fill = member_casual)) +
   facet_wrap(~member_casual) + 
     labs(title = "Density plot distance between stations")
 ```
-![density_distance](pictures/distance.png)
+![density_distance](pictures/density_distance.png)
 
 It is noticeable that in both graphs there is a high number of low distance trips(round trips or near round trips due to docking availability)
 
