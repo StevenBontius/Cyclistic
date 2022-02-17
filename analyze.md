@@ -150,7 +150,19 @@ ggplot(data = df, aes(x = month_started, y = number_bike_rides)) +
 
 Member riders show that they ride longer throughout autumn. Where we see a sharp decrease in the casual riders when the weather turns for the worse. During the winter season there are a lot less bike rides especially for the casual riders. Membership riders also start earlier with riding in the beginning of the year. Casual riders show more rides during the summer period. Winters are often cold -10 C with snow. 
 
+### Conclusions
+* Casual riders make more rides during the weekend (including Friday)
+* Member riders make less rides on Sunday and Monday than on average
+* Member riders show clear morning and evening rush hour peaks during the week
+* Casual riders only show a peak during the evening rush hour
+* Member riders ride more during the week
+* Casual riders rider more during the weekend
+* Casual and member riders show similar riding patterns during the weekend
+* Member riders ride more in the colder months whereas the casual rider likes the warmer months
+
 ## Ride duration
+
+### Density plots
 
 Plotting a density chart with the ride duration data shows that there are a few outliers that prevent the plot from being rendered correctly.
 
@@ -182,15 +194,60 @@ long_bike_rides <- bike_rides_2021 %>%
 
 Roughly 1.5% of all bike rides are longer than 100 minutes, where 92% of those longer rides are performed by casual rides. Although members are incentivized to stop their ride after 45 minutes ($0,15 cent per minute after 45 min), about 1% of their rides are longer than 45 minutes. Casual riders need to pay the 15 cents after 30 minutes, which is about 11% of their rides. But since there are also day passes available, and this information is not available in the data set, we cannot draw any conclusions from this.
 
+### Average ride duration
+
+```{r casual riders fig.width=12,fig.height=4}
+df <- bike_rides_2021 %>% 
+  filter(ride_duration_min < 100, member_casual == "casual")
+
+mean_casual_min <- df %>% 
+  pull(ride_duration_min) %>% 
+  mean() %>% 
+  round(2)
+
+median_casual_min <- df %>% 
+  pull(ride_duration_min) %>% 
+  median() %>%
+  round(2)
+
+ggplot(data = df, aes(x = ride_duration_min)) +
+  geom_density(alpha=0.4, fill = "dodgerblue") +
+  labs(title = "Density plot casual riders") +
+  geom_vline(xintercept = mean_casual_min, linetype = "longdash") +
+  geom_vline(xintercept = median_casual_min, linetype = "longdash") +
+  annotate("text", x=24, y=0.025, label= paste0("Mean\n",mean_casual_min)) +
+  annotate("text", x=12, y=0.025, label= paste0("Median\n",median_casual_min)) +
+  labs(title = "Density plot ride duration casual")
+```
+![mean_median_casual](pictures/mean_medium_casual.png)
+
+
+```{r casual riders fig.width=12,fig.height=4}
+df <- bike_rides_2021 %>% 
+  filter(ride_duration_min < 100, member_casual == "member")
+
+mean_member_min <- df %>% 
+  pull(ride_duration_min) %>% 
+  mean() %>% 
+  round(2)
+
+median_member_min <- df %>% 
+  pull(ride_duration_min) %>% 
+  median() %>%
+  round(2)
+
+ggplot(data = df, aes(x = ride_duration_min)) +
+  geom_density(alpha=0.4, fill = "dodgerblue") +
+  labs(title = "Density plot member riders") +
+  geom_vline(xintercept = mean_member_min, linetype = "longdash") +
+  geom_vline(xintercept = median_member_min, linetype = "longdash") +
+  annotate("text", x=15.5, y=0.04, label= paste0("Mean\n",mean_member_min)) +
+  annotate("text", x=6, y=0.04, label= paste0("Median\n",median_member_min)) +
+  labs(title = "Density plot ride duration members")
+```
+![mean_median_member](pictures/mean_medium_member.png)
+
 ### Conclusions
-* Casual riders make more rides during the weekend (including Friday)
-* Member riders make less rides on Sunday and Monday than on average
-* Member riders show clear morning and evening rush hour peaks during the week
-* Casual riders only show a peak during the evening rush hour
-* Member riders ride more during the week
-* Casual riders rider more during the weekend
-* Casual and member riders show similar riding patterns during the weekend
-* Member riders rider more in the colder months whereas the casual rider likes the warmer months
 * 92% of the rides longer than 100 minutes are performed by casual riders.
 
 
