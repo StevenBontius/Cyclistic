@@ -422,7 +422,7 @@ median_casual_distance_min <- bike_rides_2021 %>%
   round(2)
 ```
 Casual mean = 2.26 km
-Casual median = 1.73 km
+<br>Casual median = 1.73 km
 
 ```{r mean_median_member_distance}
 mean_member_distance_min <- bike_rides_2021 %>%
@@ -439,7 +439,7 @@ median_member_distance_min <- bike_rides_2021 %>%
 ```
 
 Member mean = 2.13 km
-Member median = 1.56 km
+<br>Member median = 1.56 km
 
 Looking at the average figures we can safely state that member riders have shorter rides on average than member riders.
 ### Conclusions
