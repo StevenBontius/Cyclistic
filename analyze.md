@@ -381,9 +381,18 @@ ggplot(round_trip, aes(x = "", y = percentage, fill = roundtrip_openended)) +
 ```
 ![round_trip](pictures/round_trip.png)
 
+It is visible that the casual riders have more round trips but the overall majority for but users are open ended trips.
+
+### Distance between stations
+
+There is one trip of an electric bike that really stands out. It traveled a whopping 115 km, most probable by car. I could not find any trips in the region that suggest rides in the neighbourhood and since no bike identification is present it is impossible to see what happended to the bike.
+
+![long ride](pictures/long_ride.jpg)
+
 ### Conclusions
 * Casual riders focus on stations the offer tourist/leisure activities
 * Member riders focus on station in residential and office locations
+* Casual riders have more round trips than mebers
 
 ## Conclusions
 * Members make more rides than casual riders
