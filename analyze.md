@@ -351,6 +351,7 @@ most_pop_end_station <- rbind(most_pop_end_station_casual, most_pop_end_station_
 
 Plotting the most popular start and end stations
 
+Start                      |  End
 :-------------------------:|:-------------------------:
 ![](pictures/top_10_start.png)  |  ![](pictures/top_10_end.png)
 
