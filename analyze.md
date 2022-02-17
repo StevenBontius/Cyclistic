@@ -389,6 +389,23 @@ There is one trip of an electric bike by a casual rider that really stands out. 
 
 Furthermore, in this plot is visible that member riders are travelling shorter distances than casual riders. This coincides with their average time on the bike.
 
+![long ride](pictures/long_ride.jpg)
+
+Plotting the density of the distance between stations
+
+```{r fig.width=12,fig.height=4}
+df <- bike_rides_2021 %>%
+  filter(distance_between_stations_km < 10)
+
+ggplot(data = df, aes(x = distance_between_stations_km, fill = member_casual)) +
+  geom_density(alpha=0.4) +
+  facet_wrap(~member_casual) + 
+    labs(title = "Density plot distance between stations")
+```
+![density_distance](pictures/density_distance.png)
+
+It is noticeable that in both graphs there is a high number of low distance trips(round trips or near round trips due to docking availability)
+
 The median and mean values for the distance are as follows:
 
 ```{r mean_median_casual_distance}
@@ -425,25 +442,6 @@ Member mean = 2.13 km
 Member median = 1.56 km
 
 Looking at the average figures we can safely state that member riders have shorter rides on average than member riders.
-
-
-![long ride](pictures/long_ride.jpg)
-
-Plotting the density of the distance between stations
-
-```{r fig.width=12,fig.height=4}
-df <- bike_rides_2021 %>%
-  filter(distance_between_stations_km < 10)
-
-ggplot(data = df, aes(x = distance_between_stations_km, fill = member_casual)) +
-  geom_density(alpha=0.4) +
-  facet_wrap(~member_casual) + 
-    labs(title = "Density plot distance between stations")
-```
-![density_distance](pictures/density_distance.png)
-
-It is noticeable that in both graphs there is a high number of low distance trips(round trips or near round trips due to docking availability)
-
 ### Conclusions
 * Casual riders focus on stations the offer tourist/leisure activities
 * Member riders focus on station in residential and office locations
