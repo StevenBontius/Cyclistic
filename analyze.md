@@ -253,6 +253,33 @@ ggplot(data = df, aes(x = ride_duration_min)) +
 * 92% of the rides longer than 100 minutes are performed by casual riders.
 * On "average" casual members spend 15 minutes on a bike compared to 10 minutes for a member.
 
+## Type of ride
+
+First an analysis of bike type per member type.
+
+```{r bikes_per_member_type}
+df <- bike_rides_2021 %>% 
+  group_by(member_casual, rideable_type) %>% 
+  tally(name = "number_of_rides") %>% 
+  mutate(percentage = round(number_of_rides / sum(number_of_rides), digits = 2)) %>% 
+  arrange(-percentage) %>% 
+  mutate(labels = scales::percent(percentage))
+
+ggplot(df, aes(x = "", y = percentage, fill = rideable_type)) +
+  geom_col(color = "white") +
+  geom_text(aes(label = labels),
+            position = position_stack(vjust = 0.5)) +
+  coord_polar(theta = "y") +
+  theme_void() + 
+  labs(title = "Rideable types per member type") +
+  guides(fill = guide_legend(title = "Rideable type")) +
+  facet_wrap(~ member_casual)
+```
+![rideable_per_type](pictures/rideable_per_type.png)
+
+
+### Conclusions
+* Members do not use docked_bikes, whereas 12% of the rides of casual riders used docked bikes.
 
 
 ## Conclusions
@@ -260,4 +287,5 @@ ggplot(data = df, aes(x = ride_duration_min)) +
 * Casual riders spend more minutes on the bike then members
 
 ## More data needed
-* Divide the casual members in to regular and day pass.
+* Divide the casual members in to regular and day pass
+* It is unknown what a docked_bike is
