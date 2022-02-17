@@ -355,6 +355,35 @@ Start                      |  End
 :-------------------------:|:-------------------------:
 ![](pictures/top_10_start.png)  |  ![](pictures/top_10_end.png)
 
+It is clearly visible that the most popular start and end stations are virtually the same. Furthermore, it is noticeable that under casual riders the tourist attractions(the pier, musea and parks ) are under the most popular stations. For member riders residential area's as well as office area's are popular.
+
+### What number of trips started or ended at the same station
+
+```{r round_trips}
+round_trip <- bike_rides_2021 %>% 
+  mutate(roundtrip_openended = case_when(distance_between_stations_km == 0 ~ "round_trip", 
+                             TRUE ~ "open_ended")) %>% 
+  group_by(member_casual, roundtrip_openended) %>% 
+  tally(name = "number_of_trips") %>% 
+  mutate(percentage = round(number_of_trips / sum(number_of_trips), digits = 2)) %>% 
+  arrange(-percentage) %>% 
+  mutate(labels = percent(percentage))
+
+ggplot(round_trip, aes(x = "", y = percentage, fill = roundtrip_openended)) +
+  geom_col(color = "white") +
+  geom_text(aes(label = labels),
+            position = position_stack(vjust = 0.5)) +
+  coord_polar(theta = "y") +
+  theme_void() + 
+  labs(title = "Open ended vs round trips") +
+  guides(fill = guide_legend(title = "Type of ride")) +
+  facet_wrap(~ member_casual)
+```
+![round_trip](pictures/round_trip.png)
+
+### Conclusions
+* Casual riders focus on stations the offer tourist/leisure activities
+* Member riders focus on station in residential and office locations
 
 ## Conclusions
 * Members make more rides than casual riders
