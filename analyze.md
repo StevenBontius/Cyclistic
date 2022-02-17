@@ -150,6 +150,29 @@ ggplot(data = df, aes(x = month_started, y = number_bike_rides)) +
 
 Member riders show that they ride longer throughout autumn. Where we see a sharp decrease in the casual riders when the weather turns for the worse. During the winter season there are a lot less bike rides especially for the casual riders. Membership riders also start earlier with riding in the beginning of the year. Casual riders show more rides during the summer period. Winters are often cold -10 C with snow. 
 
+## Ride duration
+
+Plotting a density chart with the ride duration data shows that there are a few outliers that prevent the plot from being rendered correctly.
+
+![incorrect_density](pictures/density_incorrect.png)
+
+Filtering out rides that take more than 100 minutes gives a better plot.
+
+```{r fig.width=12,fig.height=4}
+df <- bike_rides_2021 %>%
+  filter(ride_duration_min < 100)
+
+ggplot(data = df, aes(x = ride_duration_min, fill = member_casual)) +
+  geom_density(alpha=0.4) +
+  facet_wrap(~member_casual)
+```
+![correct_density.png](pictures/correct_density.png)
+
+
+
+
+The data needed to be filtered since there are some rides wit a very long duration that make the scaling of the densinty plot in such a way that it becomes unreadable. Filtered out at 200 minutes. Need to create a box plot to clearly show how the data is distributed.
+
 ### Conclusions
 * Casual riders make more rides during the weekend (including Friday)
 * Member riders make less rides on Sunday and Monday than on average
