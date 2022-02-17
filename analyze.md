@@ -196,6 +196,8 @@ Roughly 1.5% of all bike rides are longer than 100 minutes, where 92% of those l
 
 ### Average ride duration
 
+Since there are some outliers with a very long ride duration it is important to see what the effect is on the mean and median of the data. We already saw that the data is positively skewed. Looking at the plots below we can see that the median is a better representation of the "average" than the mean. So th casual riders have an "average"" of 15 minutes per ride where as the members have an "average" of 10 minutes.
+
 ```{r casual riders fig.width=12,fig.height=4}
 df <- bike_rides_2021 %>% 
   filter(ride_duration_min < 100, member_casual == "casual")
@@ -249,6 +251,7 @@ ggplot(data = df, aes(x = ride_duration_min)) +
 
 ### Conclusions
 * 92% of the rides longer than 100 minutes are performed by casual riders.
+* On "average" casual members spend 15 minutes on a bike compared to 10 minutes for a member.
 
 
 
