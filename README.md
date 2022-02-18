@@ -11,6 +11,5 @@ The analysis method used and performed in R, is the by Google recommended proces
 -   [Process](process.md)
 -   [Analyze](analyze.md)
 -   [Share](share.md)
--   [Act](act.md)
 
 
