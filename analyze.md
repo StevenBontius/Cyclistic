@@ -474,8 +474,3 @@ At the end of the analysis the following conclusions can be drawn.
 Summing them up leads to the following overall conclusion:
 
 Bike riders with a membership use Cyclistic predominately for commuting to and from work. This can be seen in the rush hour peaks as well as their average time on the bike as well as the places they visit. Casual bike riders use the bike sharing service for leisure trips to tourist attractions. Their appear to be two completely differently users.
-
-## More data needed
-* Divide the casual members in to regular and day pass
-* It is unknown what a docked_bike is
-* There is not bike identification present in the data set 
